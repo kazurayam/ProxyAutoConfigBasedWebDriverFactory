@@ -9,7 +9,7 @@ unzip it, and open it with your Katalon Studio.
 
 # Background
 
-Quite a few Katalon Studio users work behind the corporates Proxy server. Me to.
+Quite a few Katalon Studio users work behind the corporates Proxy server. Me too.
 
 You can setup a Proxy for Katalon Studio.
 See ["Proxy Preference"](https://docs.katalon.com/katalon-studio/docs/proxy-preferences.html) page.
@@ -17,14 +17,14 @@ See ["Proxy Preference"](https://docs.katalon.com/katalon-studio/docs/proxy-pref
 Katalon Studio referes to this proxy config in several ways.
 1. The browser opend by `WebUI.openBrowser()` on your PC (which is behind the corporate's Proxy) will have the same proxy as configured for Katalon Studio. The Katalon test scripts will have access to the URLs on the Internet through that proxy.
 2. The Spy and Recorder features of Katalon Studio implictly opens browsers with the same proxy confing.
-3. As of v6.1.0 Katalon Studio requires communicattion with [Plugin Store](https://store.katalon.com/). If you are behind proxy, you MUST configure proxy appropriately. Otherwise you can not use Katalon Stduio with plugin .
-4. You may want to opt in using [Katalon Analytics](https://www.katalon.com/katalon-analytics/) as a backend for your tests in Katalon Studio. If you are behind proxy, you MUST configure proxy appropriately.
+3. As of v6.1.0 Katalon Studio requires communicattion with [Plugin Store](https://store.katalon.com/). If you are behind proxy, you MUST configure proxy appropriately. Otherwise you can not use Katalon Stduio with plugins.
+4. You may opt in using [Katalon Analytics](https://www.katalon.com/katalon-analytics/) as a backend for your tests in Katalon Studio. If you are behind proxy, you MUST configure proxy appropriately.
 
 # Problem to solve
 
 The [Proxy Preference](https://docs.katalon.com/katalon-studio/docs/proxy-preferences.html) of Katalon Studio implicitly assumes the following.
-1. You have atmost 1 proxy server. The preference does not support having 2 or more Proxy servers.
-2. The Katalon Studio's Proxy does not support specifying URL patterns to bypass proxy. See [Chromium option --proxy-bypass-list](https://www.chromium.org/developers/design-documents/network-settings):
+1. The Katalon Studio's Proxy does not support specifying URL patterns to bypass proxy. See [Chromium option --proxy-bypass-list](https://www.chromium.org/developers/design-documents/network-settings)
+2. You have atmost 1 proxy server. The preference does not support having 2 or more Proxy servers in the local network you are in.
 
 Unfortunately, I encountered some difficulities.
 
@@ -85,3 +85,7 @@ WebUI.verifyElementPresent(to, 30)
 WebUI.delay(3)
 WebUI.closeBrowser()
 ```
+
+Only Firefox and Chrome is supported by this class. IE/Safari/Edge --- I do not need them.
+
+`ProxyAutoConfigBasedWebDriverFactory` does not refer to the Proxy config for Katalon Studio itself. The browsers lauched by this class are independent of the Katalon Studio's Proxy preferences.
