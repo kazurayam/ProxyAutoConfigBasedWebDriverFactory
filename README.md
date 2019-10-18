@@ -53,11 +53,11 @@ My organization requires workers to use Proxy Auto-config (a.k.a. PAC). As long 
 
 What is PAC? See https://en.wikipedia.org/wiki/Proxy_auto-config
 
-So I want to, when I execute test cases, launch browsers from Katalon Studio so that browsers to employ the PAC script provided my network administrators.
+So I want to, when I execute test cases, launch browsers from Katalon Studio so that browsers employ the PAC script provided by my network administrators.
 
 # How to solve it
 
-I can not rely on `WebUI.openBrowser()` any longer.
+I can not rely on Katalon's built-in `WebUI.openBrowser()` instruction any longer. I need to lauch browsers for myself specifying options in detail.
 
 I have developed a custom Groovy class `com.kazurayam.katalon.ProxyAutoConfigBasedWebDriverFactory`. This is a factory class with which you can launch Firefox/Chrome browser with the PAC is configured.
 
@@ -69,8 +69,8 @@ I would quote the test case fragment here for quick reference
 
 ```
 // These are just my case. You should change those as you require.
-String PAC_URL = 'http://xxx.xxx.xxx.xxx/proxy.pac'
-String targetURL = "http://yyy.yyy.yyy.yyy/"
+String PAC_URL = 'http://172.xxx.xxx.xxx/proxy.pac'
+String targetURL = "http://192.yyy.yyy.yyy/"
 
 // You want to open browser which is configured to use Proxy Auto-config of your organization
 WebDriver driver = ProxyAutoConfigBasedWebDriverFactory.createWebDriver(PAC_URL)
