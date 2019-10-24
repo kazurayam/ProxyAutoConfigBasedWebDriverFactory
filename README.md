@@ -89,3 +89,7 @@ WebUI.closeBrowser()
 Only Firefox and Chrome is supported by this class. IE/Safari/Edge --- I do not need them.
 
 `ProxyAutoConfigBasedWebDriverFactory` does not refer to the Proxy config for Katalon Studio itself. The browsers lauched by this class are independent of the Katalon Studio's Proxy preferences.
+
+# API Doc
+
+- [Groovy doc](docs/api/index.html)
