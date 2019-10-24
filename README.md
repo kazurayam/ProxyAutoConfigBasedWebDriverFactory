@@ -92,4 +92,4 @@ Only Firefox and Chrome is supported by this class. IE/Safari/Edge --- I do not 
 
 # API Doc
 
-- [Groovy doc](https://kazurayam.github.io/ProxyAutoConfsigBasedWebDriverFactory/api/index.html)
+- [Groovy doc](https://kazurayam.github.io/ProxyAutoConfigBasedWebDriverFactory/api/index.html)
